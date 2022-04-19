@@ -6,6 +6,7 @@ class AppState extends EventEmitter {
   myTodos = []
   img = null
   weather = null
+  quote = null
 }
 
 
