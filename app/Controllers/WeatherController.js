@@ -12,19 +12,21 @@ export class WeatherController {
     constructor() {
         ProxyState.on("weather", _drawWeather)
         this.getWeather()
-        
+
     }
 
-    async getWeather(){
+    async getWeather() {
         try {
-           await weatherService.getWeather()
+            await weatherService.getWeather()
         } catch (error) {
             console.error(error.message)
         }
     }
 
-    flip(){
+    flip() {
         weatherService.flip()
+        _drawWeather()
+        ProxyState.weather = ProxyState.weather
     }
 
 }
